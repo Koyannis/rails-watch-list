@@ -1,0 +1,27 @@
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+  <div class="container-fluid">
+
+    <%= link_to '<i class="bi bi-house"></i>'.html_safe, lists_path, class: "navbar-brand" %>
+
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+    <ul class="navbar-nav me-auto">
+      <div class="dropdown">
+        <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+        Mes listes
+        </a>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+          <% List.all.each do |list|  %>
+            <li><%= link_to list.name, list_path(list), class: "dropdown-item" %></li>
+          <% end  %>
+        </ul>
+      </div>
+
+      <li class="nav-item">
+        <%= link_to "Create new list", new_list_path, class: "nav-link " %>
+      </li>
+    </ul>
+    </div>
+  </div>
+</div>

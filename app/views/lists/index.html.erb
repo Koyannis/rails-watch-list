@@ -1,9 +1,18 @@
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/background.png);">
-  <div class="container">
-    <h1>Cinema List</strong>!</h1>
+<div class="banner" style="">
+    <%= video_tag 'movie_projector.mp4', autoplay: :autoplay, loop: :loop, muted: :muted, id: "background-video" %>
+    <div class="container">
+    <h1>My Movies Lists</h1>
   </div>
 </div>
 
-<% @lists.each do |list|  %>
-<%= link_to list.name, list_path(list) %>
-<% end  %>
+<div class="container-fluid d-flex cards">
+  <% @lists.each do |list|  %>
+    <div class="card-product">
+      <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+      <div class="card-product-infos">
+      <h2><%= link_to list.name, list_path(list) %></h2>
+      <p>  <%= list.movies.count %> films</p>
+      </div>
+    </div>
+  <% end  %>
+</div>

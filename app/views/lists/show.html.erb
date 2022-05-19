@@ -1,13 +1,17 @@
-<div> <%= @list.name %></div>
+<div class="container text-center"> <h1><%= @list.name %></h1></div>
 
 
-<div><% @list.bookmarks.each do |bookmark| %>
-</div><%= bookmark.movie.title %> : <%= bookmark.comment %> - <%= link_to "Delete", bookmark_path(bookmark), method: :delete  %>
-<%end %></div>
+<div class="text-center d-flex flex_column movies">
+  <% @list.bookmarks.each do |bookmark| %>
+    <div>
+      <%= bookmark.movie.title %> : <%= bookmark.comment %> - <%= link_to "Delete", bookmark_path(bookmark), method: :delete  %>
+    </div>
+  <%end %>
+</div>
 
 
 <!-- Button trigger modal -->
-<div><button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+<div class="text-center" ><button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
 Ajouter un film</button></div>
 
 <!-- Modal -->

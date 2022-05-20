@@ -44,7 +44,7 @@ Ajouter un film</button></div>
       <div class="modal-body">
         <%= simple_form_for [@list, @bookmark] do |f| %>
           <%= f.association :movie %>
-          <%= f.input :comment %>
+          <%= f.input :comment, :label => "Commentaire (6 caractères min.)"%>
           <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
           <%= f.submit "Ajouter le film", class: "btn btn-primary" %>

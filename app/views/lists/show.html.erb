@@ -1,3 +1,7 @@
+<% if @list.photo.attached? %>
+<%= cl_image_tag @list.photo.key, height: 300, width: 400, crop: :fill %>
+<% end %>
+
 <div class="container text-center d-flex"> <h1><%= @list.name %></h1>
 <i class="bi bi-pencil-square" data-bs-toggle="modal" data-bs-target="#edit-btn"></i>
 </div>
@@ -9,6 +13,7 @@
         <h5 class="modal-title" id="exampleModalLabel">Changer le titre :</h5>
         <%= simple_form_for @list do |f| %>
           <%= f.input :name %>
+          <%= f.input :photo, as: :file %>
           <%= f.submit "Valider", class: "btn btn-primary" %>
         <% end %>
       </div>

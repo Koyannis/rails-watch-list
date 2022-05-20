@@ -1,4 +1,27 @@
-<div class="container text-center"> <h1><%= @list.name %></h1></div>
+<div class="container text-center d-flex"> <h1><%= @list.name %></h1>
+<i class="bi bi-pencil-square" data-bs-toggle="modal" data-bs-target="#edit-btn"></i>
+</div>
+
+<div class="modal fade" id="edit-btn" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Changer le titre :</h5>
+        <%= simple_form_for @list do |f| %>
+          <%= f.input :name %>
+          <%= f.submit "Valider", class: "btn btn-primary" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
 
 
 <div class="text-center d-flex flex_column movies">

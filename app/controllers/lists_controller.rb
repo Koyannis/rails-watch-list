@@ -12,14 +12,17 @@ class ListsController < ApplicationController
     @list = List.new
   end
 
-  def new
-    @list = List.new
-  end
-
   def create
     @list = List.new(list_params)
     @list.save
     redirect_to lists_path
+  end
+
+
+  def update
+    @list = List.find(params[:id])
+    @list.update(list_params)
+    redirect_to list_path(@list)
   end
 
   private
